@@ -1,4 +1,5 @@
 import React from 'react';
+import Item from './Item';
 
 export default class Skill extends React.Component {
     render() {
@@ -13,12 +14,9 @@ export default class Skill extends React.Component {
                     </p>
                     <div className="bars">
                         <ul className="skills">
-                            {this.props.resumeData.skills && this.props.resumeData.skills.map((item) => {
+                            {this.props.resumeData.skills && this.props.resumeData.skills.map((item, index) => {
                                 return(
-                                    <li>
-                                        <span className={`bar-expand ${item.skillname.toLowerCase()}`} >
-                                        </span><em>{item.skillname}</em>
-                                    </li>
+                                    <Item item = {item} key = {index} />
                                 )
                             })}
                         </ul>

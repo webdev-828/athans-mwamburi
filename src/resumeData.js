@@ -1,8 +1,3 @@
-import image1 from './assets/Screenshot_1.png';
-import image2 from './assets/Screenshot_2.png';
-import image3 from './assets/Screenshot_3.png';
-import image4 from './assets/Screenshot_4.png';
-
 let resumeData = {
     "imagebaseurl":"https://rbhatia46.github.io/",
     "name": "Athanas",

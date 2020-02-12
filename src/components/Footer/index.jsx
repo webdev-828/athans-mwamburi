@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Item from './Item';
 export default class Footer extends Component {
     render() {
         let resumeData = this.props.resumeData;
@@ -8,15 +9,11 @@ export default class Footer extends Component {
                     <div className="twelve columns">
                         <ul className="social-links">
                             {
-                            resumeData.socialLinks && resumeData.socialLinks.map((item)=>{
-                                return(
-                                <li>
-                                    <a href={item.url}>
-                                    <i className={item.className} />
-                                    </a>
-                                </li>
-                                )
-                            })
+                                resumeData.socialLinks && resumeData.socialLinks.map((item, index)=>{
+                                    return(
+                                        <Item item = {item} key = {index} />
+                                    )
+                                })
                             }
                         </ul>                    
                     </div>
