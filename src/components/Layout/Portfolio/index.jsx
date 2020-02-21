@@ -4,10 +4,9 @@ import Header from './Header';
 import Body from './Body';
 import Footer from './Footer';
 
-const Porfolio = ({resumeData, name}) => {
-    console.log(resumeData)
+const Porfolio = ({resumeData}) => {
     React.useEffect(() => {
-        axios.post('https://athanas-mailer.herokuapp.com//api/addVisitor', {name: name})
+        axios.post('https://athanas-mailer.herokuapp.com/api/addVisitor', {name: resumeData.name})
         .then(res => {
             console.log(res)
         })
