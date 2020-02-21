@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Router, Switch, Route, Link } from 'react-router-dom'
 import {createBrowserHistory} from 'history';
-import NotFound from './components/NotFound';
-import Layout from './components/Portfolio/Layout';
+import Layout from './components/Layout';
 import History from './components/Admin';
 import resumeData from './resumeData';
 
@@ -25,18 +24,9 @@ class App extends Component {
         <div className="App">
           <Switch>
             <Route exact path = "/" component = {InitialComp}/>
-            <Route exact path = "/:name" render = {({match}) => {
-              const resume = resumeData[`${match.params.name}`];
-              if (resume) {
-                return (
-                  <Layout resumeData = {resume} />
-                )
-              } else {
-                return (
-                  <NotFound />
-                )
-              }
-            }} />
+            <Route exact path = "/:path" render = {({match}) => {
+              return <Layout path = {match.params.path} />
+            }}/>
             <Route exact path = "/admin/history" component = {History} />
           </Switch>
         </div>

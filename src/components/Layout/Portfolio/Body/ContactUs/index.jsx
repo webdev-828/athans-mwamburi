@@ -35,7 +35,7 @@ export default class ContactUs extends Component {
             message: this.state.message
         };
         var self = this
-        axios.post('http://192.168.1.125:5000/api/addContact', {mail: mail})
+        axios.post('http://localhost:5000/api/addContact', {mail: mail})
         .then(res => {
             console.log(res.status)
             if (res.status === 200) {

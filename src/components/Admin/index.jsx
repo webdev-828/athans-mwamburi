@@ -7,14 +7,14 @@ export default (props) => {
     const [visitors, setVisitors] = React.useState(Array);
 
     React.useEffect(() => {
-        axios.get('http://192.168.1.125:5000/api/fetchVisitor')
+        axios.get('http://localhost:5000/api/fetchVisitor')
         .then(res => {
             setVisitors(res.data.visitors)
         });
     }, []);
 
     const handleDelete = (id) => {
-        axios.delete(`http://192.168.1.125:5000/api/deleteVisitors/${id}`)
+        axios.delete(`http://localhost:5000/api/deleteVisitors/${id}`)
         .then(res => {
             if (res.data.id) {
                 const arr = visitors.filter(element => element._id !== res.data.id);
