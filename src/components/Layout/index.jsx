@@ -6,7 +6,7 @@ import NotFound from './NotFound';
 const Layout = ({path}) => {
     const [resume, setResume] = React.useState(undefined);
     React.useEffect(() => {
-        axios.get('http://localhost:5000/api/resume')
+        axios.get('https://athanas-mailer.herokuapp.com/api/resume')
         .then(res => {
             var myResume = res.data.resume[`${path}`];
             setResume(myResume);

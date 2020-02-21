@@ -35,7 +35,7 @@ export default class ContactUs extends Component {
             message: this.state.message
         };
         var self = this
-        axios.post('http://localhost:5000/api/addContact', {mail: mail})
+        axios.post('https://athanas-mailer.herokuapp.com/api/addContact', {mail: mail})
         .then(res => {
             console.log(res.status)
             if (res.status === 200) {
