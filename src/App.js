@@ -3,6 +3,7 @@ import { Router, Switch, Route, Link } from 'react-router-dom'
 import {createBrowserHistory} from 'history';
 import NotFound from './components/NotFound';
 import Layout from './components/Portfolio/Layout';
+import History from './components/Admin';
 import resumeData from './resumeData';
 
 const history = createBrowserHistory();
@@ -36,6 +37,7 @@ class App extends Component {
                 )
               }
             }} />
+            <Route exact path = "/admin/history" component = {History} />
           </Switch>
         </div>
       </Router>
