@@ -29,39 +29,44 @@ export default (props) => {
         <div style = {{display: 'flex', justifyContent: 'center'}}>
             <div>
                 <h1 style = {{textAlign: 'center', marginTop: 20}}>My Visitors</h1>
-                <button style = {{left: '100%', marginBottom: '20px'}} className = 'delete' onClick = {() => handleDelete()}>Delete All</button>
-                <table id = 'customers'>
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>IP Address</th>
-                            <th>Country</th>
-                            <th>State</th>
-                            <th>City</th>
-                            <th>Name</th>
-                            <th>Date</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {visitors.map((element, index) => {
-                            return (
-                                <tr key = {index}>
-                                    <td>{index + 1}</td>
-                                    <td>{element.ip}</td>
-                                    <td>{element.country}</td>
-                                    <td>{element.state}</td>
-                                    <td>{element.city}</td>
-                                    <td>{element.name}</td>
-                                    <td>{element.visited_on}</td>
-                                    <td>                                        
-                                        <button className = 'delete' style = {{left: '0px'}} onClick = {() => handleDelete(element._id)}>Delete</button>
-                                    </td>
+                {visitors.length > 0 ? 
+                    <>
+                        <button style = {{left: '100%', marginBottom: '20px'}} className = 'delete' onClick = {() => handleDelete()}>Delete All</button>
+                        <table id = 'customers'>
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>IP Address</th>
+                                    <th>Country</th>
+                                    <th>State</th>
+                                    <th>City</th>
+                                    <th>Name</th>
+                                    <th>Date</th>
+                                    <th>Action</th>
                                 </tr>
-                            )
-                        })}
-                    </tbody>
-                </table>
+                            </thead>
+                            <tbody>
+                                {visitors.map((element, index) => {
+                                    return (
+                                        <tr key = {index}>
+                                            <td>{index + 1}</td>
+                                            <td>{element.ip}</td>
+                                            <td>{element.country}</td>
+                                            <td>{element.state}</td>
+                                            <td>{element.city}</td>
+                                            <td>{element.name}</td>
+                                            <td>{element.visited_on}</td>
+                                            <td>                                        
+                                                <button className = 'delete' style = {{left: '0px'}} onClick = {() => handleDelete(element._id)}>Delete</button>
+                                            </td>
+                                        </tr>
+                                    )
+                                })}
+                            </tbody>
+                        </table>
+                    </>
+                : <p style = {{textAlign: 'center', marginTop: 200}}>No Data</p>
+                }
             </div>
         </div>
     )
