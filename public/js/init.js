@@ -121,17 +121,22 @@
 /*----------------------------------------------------*/
 /*	Flexslider
 /*----------------------------------------------------*/
-   $('.flexslider').flexslider({
-      namespace: "flex-",
-      controlsContainer: ".flex-container",
-      animation: 'slide',
-      controlNav: true,
-      directionNav: false,
-      smoothHeight: true,
-      slideshowSpeed: 7000,
-      animationSpeed: 600,
-      randomize: false,
-   });
+   var interval = setInterval(() => {
+      if ($('.flexslider').length > 0) {
+         $('.flexslider').flexslider({
+            namespace: "flex-",
+            controlsContainer: ".flex-container",
+            animation: 'slide',
+            controlNav: true,
+            directionNav: false,
+            smoothHeight: true,
+            slideshowSpeed: 7000,
+            animationSpeed: 600,
+            randomize: false,
+         });
+         clearInterval(interval)
+      };      
+   }, 1000)
 
 /*----------------------------------------------------*/
 /*	contact form
